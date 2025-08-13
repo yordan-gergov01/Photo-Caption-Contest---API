@@ -5,6 +5,8 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
+const AppError = require("./utils/appError");
+
 const app = express();
 
 app.use(express.json({ limit: "10kb" }));
@@ -31,11 +33,9 @@ app.get("/health", (req, res) => {
 });
 
 app.all("*", (req, res, next) => {
-  // TODO: error handling with global class
-  // next(new AppError())
+  next(new AppError(`Can't fine ${req.originalUrl} on this server.`, 404));
 });
 
-// TODO:
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 module.exports = app;
