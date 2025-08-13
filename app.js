@@ -6,6 +6,10 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
 const AppError = require("./utils/appError");
+const globalErrorHandler = require("./middlewares/errorHandler");
+const captionsRouter = require("./routes/captionsRoutes");
+const usersRouter = require("./routes/usersRoutes");
+const photosRouter = require("./routes/photosRoutes");
 
 const app = express();
 
@@ -27,6 +31,9 @@ const limiter = rateLimit({
 });
 
 app.use("/api", limiter);
+app.use("/api/captions", captionsRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/photos", photosRouter);
 
 app.get("/health", (req, res) => {
   res.json({ message: "OK" });
