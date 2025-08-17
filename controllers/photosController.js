@@ -45,7 +45,7 @@ const getAllPhotos = async (req, res, next) => {
 
 const getPhotoById = async (req, res, next) => {
   try {
-    const photoId = req.params.photo_id;
+    const photoId = req.params.id;
 
     const photo = await Photo.findByPk(photoId, {
       include: [{ model: User, attributes: ["id", "username", "email"] }],
@@ -66,7 +66,7 @@ const getPhotoById = async (req, res, next) => {
 
 const deletePhoto = async (req, res, next) => {
   try {
-    const photoId = req.params.photo_id;
+    const photoId = req.params.id;
     const photo = await Photo.findByPk(photoId);
 
     if (!photo) {

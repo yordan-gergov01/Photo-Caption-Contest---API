@@ -1,4 +1,4 @@
-const jwt = require("jwt");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const User = require("../models/User");
@@ -51,7 +51,7 @@ const register = async (req, res, next) => {
     }
 
     const saltRounds = Number(process.env.SALT_ROUNDS);
-    const hashedPassword = await bcrypt(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const newUser = await User.create({
       email,

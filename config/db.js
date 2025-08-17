@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
-    dialect: "dialect",
+    dialect: "postgres",
     // for debug set it to true
     logging: false,
   }

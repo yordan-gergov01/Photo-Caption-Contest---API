@@ -39,8 +39,8 @@ app.get("/health", (req, res) => {
   res.json({ message: "OK" });
 });
 
-app.all("*", (req, res, next) => {
-  next(new AppError(`Can't fine ${req.originalUrl} on this server.`, 404));
+app.use((req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server.`, 404));
 });
 
 app.use(globalErrorHandler);
