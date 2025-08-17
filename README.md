@@ -35,30 +35,54 @@ The API is built with Node.js, Express, Sequelize (PostgreSQL) and includes JWT 
 
 
 ├── config/
-│   └── db.js             # Sequelize database connection
-├── controllers/          # Controllers for routes
+
+│   └── db.js
+
+├── controllers/     
+
 │   ├── authController.js
+
 │   ├── captionsController.js
+
 │   ├── photosController.js
+
 │   └── userController.js
+
 ├── docs/
-│   └── swagger.yaml      # API documentation
+
+│   └── swagger.yaml    
+
 ├── middlewares/
-│   └── protect.js        # JWT authentication middleware
-│   └── errorHandler.js   # Global error handling
-├── models/               # Sequelize models
+
+│   └── protect.js       
+
+│   └── errorHandler.js   
+
+├── models/              
+
 │   ├── User.js
+
 │   ├── Photo.js
+
 │   └── Caption.js
-├── routes/               # Express routers
+
+├── routes/   
+
 │   ├── usersRoutes.js
+
 │   ├── photosRoutes.js
+
 │   └── captionsRoutes.js
+
 ├── utils/
-│   ├── appError.js       # Custom error class
-│   └── NodeCache.js      # Cache utility
-├── app.js                # Express app
-└── server.js             # Server entry point
+
+│   ├── appError.js      
+
+│   └── NodeCache.js   
+
+├── app.js          
+
+└── server.js            
 
 
 ## Database Schema
@@ -87,23 +111,24 @@ http://localhost:3000/api-docs
 
 3. Configure environment variables
 
-# Database
+## Database
 DB_HOST=localhost
 DB_NAME=your_db_name
 DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 
-# JWT
+## JWT
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN
 JWT_COOKIE_EXPIRES_IN
 
-# Bcrypt
+## Bcrypt
 SALT_ROUNDS
 
 
 4. Run miggartions (if needed only)
    npx sequelize-cli db:migrate
+
 
 5. Start development server
 
