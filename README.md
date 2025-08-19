@@ -111,6 +111,15 @@ http://localhost:3000/api-docs
 
 3. Configure environment variables
 
+4. 4. Run miggartions (if needed only)
+   npx sequelize-cli db:migrate
+
+
+5. Start development server
+
+   npm run watch (with nodemon)
+
+
 ## Database
 
 DB_HOST=localhost
@@ -134,13 +143,3 @@ JWT_COOKIE_EXPIRES_IN
 ## Bcrypt
 
 SALT_ROUNDS
-
-
-4. Run miggartions (if needed only)
-   npx sequelize-cli db:migrate
-
-
-5. Start development server
-
-   npm run watch (with nodemon)
-
